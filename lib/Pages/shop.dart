@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import '../Icons/custom_icons.dart';
+import './seeds.dart';
+import './plant_protect.dart';
+import './agri_equip.dart';
+import './hardware.dart';
+import './heavy_machinery.dart';
+import './nutrition.dart';
 
 final _bannerImage =
     'https://images.unsplash.com/photo-1474440692490-2e83ae13ba29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80';
@@ -13,9 +19,7 @@ class _ShopState extends State<Shop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Shop'),
-      ),
+      appBar: AppBar(title: Text('Shop')),
       body: Column(
         children: <Widget>[
           Padding(
@@ -35,7 +39,7 @@ class _ShopState extends State<Shop> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Shop()),
+                        MaterialPageRoute(builder: (context) => Seeds()),
                       );
                     },
                     child: Column(
@@ -59,7 +63,12 @@ class _ShopState extends State<Shop> {
                   minWidth: 150.0,
                   height: 100.0,
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PlantProtect()),
+                      );
+                    },
                     child: Column(
                       children: <Widget>[
                         Padding(
@@ -88,7 +97,12 @@ class _ShopState extends State<Shop> {
                   minWidth: 150.0,
                   height: 100.0,
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Nutrition()),
+                      );
+                    },
                     child: Column(
                       children: <Widget>[
                         Padding(
@@ -110,7 +124,12 @@ class _ShopState extends State<Shop> {
                   minWidth: 150.0,
                   height: 100.0,
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Hardware()),
+                      );
+                    },
                     child: Column(
                       children: <Widget>[
                         Padding(
@@ -139,7 +158,12 @@ class _ShopState extends State<Shop> {
                   minWidth: 150.0,
                   height: 100.0,
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AgriEquip()),
+                      );
+                    },
                     child: Column(
                       children: <Widget>[
                         Padding(
@@ -161,7 +185,13 @@ class _ShopState extends State<Shop> {
                   minWidth: 150.0,
                   height: 100.0,
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HeavyMachinery()),
+                      );
+                    },
                     child: Column(
                       children: <Widget>[
                         Padding(

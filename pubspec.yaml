@@ -48,7 +48,10 @@ flutter:
   fonts:
    - family:  Custom
      fonts:
-      - asset: assets/Custom.ttf       
+      - asset: assets/Custom.ttf
+   - family:  Custom2
+     fonts:
+      - asset: assets/Custom2.ttf             
 
   # To add assets to your application, add an assets section, like this:
   #assets:
