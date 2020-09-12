@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../Icons/custom_icons.dart';
 import '../Icons/custom2_icons.dart';
+import 'package:agrrio/Pages/products.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Nutrition extends StatefulWidget {
   @override
@@ -8,15 +10,38 @@ class Nutrition extends StatefulWidget {
 }
 
 class _NutritionState extends State<Nutrition> {
+  final String telephoneNumber = "8878079999";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Nutrition')),
+      appBar: AppBar(
+        title: Text('Nutrition / पोषण'),
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () async {
+                String telephoneUrl = "tel:$telephoneNumber";
+                if (await canLaunch(telephoneUrl)) {
+                  await launch(telephoneUrl);
+                } else {
+                  throw "Can't phone that number.";
+                }
+              },
+              child: Icon(Icons.call),
+            ),
+          )
+        ],
+      ),
       body: Column(children: <Widget>[
         SizedBox(height: 30.0),
         Text(
           'Nutrition Category',
           style: TextStyle(fontSize: 30.0),
+        ),
+        Text(
+          'पोषण की श्रेणी',
+          style: TextStyle(fontSize: 20.0),
         ),
         SizedBox(height: 30.0),
         Row(
@@ -27,7 +52,13 @@ class _NutritionState extends State<Nutrition> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "General Growth")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -39,6 +70,7 @@ class _NutritionState extends State<Nutrition> {
                       ),
                     ),
                     Text("General Growth"),
+                    Text("सामान्य वृद्धि")
                   ],
                 ),
               ),
@@ -49,7 +81,13 @@ class _NutritionState extends State<Nutrition> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Flowering")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -63,6 +101,7 @@ class _NutritionState extends State<Nutrition> {
                     Text(
                       "Flowering",
                     ),
+                    Text("फूल")
                   ],
                 ),
               ),
@@ -78,7 +117,13 @@ class _NutritionState extends State<Nutrition> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Super Spreader")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -90,6 +135,7 @@ class _NutritionState extends State<Nutrition> {
                       ),
                     ),
                     Text("Super Spreader"),
+                    Text("सुपर स्प्रेडर")
                   ],
                 ),
               ),
@@ -100,7 +146,13 @@ class _NutritionState extends State<Nutrition> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Bio")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -114,6 +166,7 @@ class _NutritionState extends State<Nutrition> {
                     Text(
                       "Bio",
                     ),
+                    Text("जैव")
                   ],
                 ),
               ),
@@ -129,7 +182,14 @@ class _NutritionState extends State<Nutrition> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Products(name: "Plant Growth Promoter")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -141,6 +201,7 @@ class _NutritionState extends State<Nutrition> {
                       ),
                     ),
                     Text("Plant Growth Promoter"),
+                    Text("पौधे के विकास")
                   ],
                 ),
               ),
@@ -151,7 +212,13 @@ class _NutritionState extends State<Nutrition> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Fertilizers")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -165,6 +232,7 @@ class _NutritionState extends State<Nutrition> {
                     Text(
                       "Fertilizers",
                     ),
+                    Text("उर्वरक")
                   ],
                 ),
               ),
@@ -177,7 +245,13 @@ class _NutritionState extends State<Nutrition> {
           minWidth: 150.0,
           height: 100.0,
           child: RaisedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Products(name: "Organic")),
+              );
+            },
             child: Column(
               children: <Widget>[
                 Padding(
@@ -191,6 +265,7 @@ class _NutritionState extends State<Nutrition> {
                 Text(
                   "Organic",
                 ),
+                Text("जैविक")
               ],
             ),
           ),

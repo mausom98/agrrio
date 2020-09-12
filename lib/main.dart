@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:agrrio/Pages/home.dart';
-import 'colors.dart';
+import 'package:flutter/services.dart';
+import './auth_check.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,13 +9,16 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return MaterialApp(
       title: 'Agrrio',
       theme: ThemeData(
-        primarySwatch: myColor,
+        primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Agrrio'),
+      home: CheckAuth(),
       debugShowCheckedModeBanner: false,
     );
   }

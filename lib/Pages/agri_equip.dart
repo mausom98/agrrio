@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../Icons/custom_icons.dart';
 import '../Icons/custom2_icons.dart';
+import '../Icons/custom3_icons.dart';
+import 'package:agrrio/Pages/products.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AgriEquip extends StatefulWidget {
   @override
@@ -8,10 +10,29 @@ class AgriEquip extends StatefulWidget {
 }
 
 class _AgriEquipState extends State<AgriEquip> {
+  final String telephoneNumber = "8878079999";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Agri- Equipments')),
+      appBar: AppBar(
+        title: Text('Agri- Equipments'),
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () async {
+                String telephoneUrl = "tel:$telephoneNumber";
+                if (await canLaunch(telephoneUrl)) {
+                  await launch(telephoneUrl);
+                } else {
+                  throw "Can't phone that number.";
+                }
+              },
+              child: Icon(Icons.call),
+            ),
+          )
+        ],
+      ),
       body: Column(children: <Widget>[
         SizedBox(height: 10.0),
         Row(
@@ -22,7 +43,13 @@ class _AgriEquipState extends State<AgriEquip> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Rotavator")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -33,7 +60,8 @@ class _AgriEquipState extends State<AgriEquip> {
                         size: 40.0,
                       ),
                     ),
-                    Text("Rotator"),
+                    Text("Rotavator"),
+                    Text("रोटावेटर")
                   ],
                 ),
               ),
@@ -44,20 +72,27 @@ class _AgriEquipState extends State<AgriEquip> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Seed Drills")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Custom2.truffle,
+                        Custom3.tractor,
                         color: Colors.deepOrange,
                         size: 40.0,
                       ),
                     ),
                     Text(
-                      "Seed Prills",
+                      "Seed Drills",
                     ),
+                    Text("बीज ड्रिल")
                   ],
                 ),
               ),
@@ -73,18 +108,25 @@ class _AgriEquipState extends State<AgriEquip> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Cultivator")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Custom2.agriculture,
+                        Custom3.tractor__1_,
                         size: 40.0,
                         color: Colors.red,
                       ),
                     ),
                     Text("Cultivator"),
+                    Text("खेतिहर")
                   ],
                 ),
               ),
@@ -95,7 +137,13 @@ class _AgriEquipState extends State<AgriEquip> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Ploughs")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -109,6 +157,7 @@ class _AgriEquipState extends State<AgriEquip> {
                     Text(
                       "Ploughs",
                     ),
+                    Text("हल")
                   ],
                 ),
               ),
@@ -124,18 +173,25 @@ class _AgriEquipState extends State<AgriEquip> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Straw Reeper")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Custom.wheat,
+                        Custom3.cultivation,
                         size: 40.0,
                         color: Colors.green,
                       ),
                     ),
-                    Text("Straw Reaper"),
+                    Text("Straw Reeper"),
+                    Text("पुआल का रीपर")
                   ],
                 ),
               ),
@@ -146,13 +202,19 @@ class _AgriEquipState extends State<AgriEquip> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Mulcher")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Custom2.plant__2_,
+                        Custom3.road_roller,
                         color: Colors.lightBlue,
                         size: 40.0,
                       ),
@@ -160,6 +222,7 @@ class _AgriEquipState extends State<AgriEquip> {
                     Text(
                       "Mulcher",
                     ),
+                    Text("मलचिंग")
                   ],
                 ),
               ),
@@ -175,18 +238,25 @@ class _AgriEquipState extends State<AgriEquip> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Reeper")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Custom.avocado__2_,
+                        Custom3.tractor__6_,
                         size: 40.0,
                         color: Colors.green,
                       ),
                     ),
                     Text("Reeper"),
+                    Text("काटनेवाला")
                   ],
                 ),
               ),
@@ -197,20 +267,27 @@ class _AgriEquipState extends State<AgriEquip> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Weeder")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Icons.wb_iridescent,
+                        Custom3.weeder,
                         color: Colors.lightBlue,
                         size: 40.0,
                       ),
                     ),
                     Text(
-                      "Weeper",
+                      "Weeder",
                     ),
+                    Text("वीडर")
                   ],
                 ),
               ),
@@ -226,7 +303,13 @@ class _AgriEquipState extends State<AgriEquip> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Others")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -240,6 +323,7 @@ class _AgriEquipState extends State<AgriEquip> {
                     Text(
                       "Others",
                     ),
+                    Text("अन्य")
                   ],
                 ),
               ),

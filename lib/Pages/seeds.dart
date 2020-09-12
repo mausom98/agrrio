@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Icons/custom_icons.dart';
+import 'package:agrrio/Pages/products.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Seeds extends StatefulWidget {
   @override
@@ -7,16 +9,36 @@ class Seeds extends StatefulWidget {
 }
 
 class _SeedsState extends State<Seeds> {
+  final String telephoneNumber = "8878079999";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Seeds')),
+      appBar: AppBar(
+        title: Text('Seeds / बीज'),
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () async {
+                String telephoneUrl = "tel:$telephoneNumber";
+                if (await canLaunch(telephoneUrl)) {
+                  await launch(telephoneUrl);
+                } else {
+                  throw "Can't phone that number.";
+                }
+              },
+              child: Icon(Icons.call),
+            ),
+          )
+        ],
+      ),
       body: Column(children: <Widget>[
         SizedBox(height: 30.0),
         Text(
           'Seeds Category',
           style: TextStyle(fontSize: 30.0),
         ),
+        Text("बीज श्रेणी", style: TextStyle(fontSize: 20.0)),
         SizedBox(height: 30.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -26,7 +48,13 @@ class _SeedsState extends State<Seeds> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Grains")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -38,6 +66,7 @@ class _SeedsState extends State<Seeds> {
                       ),
                     ),
                     Text("Grains"),
+                    Text("अनाज")
                   ],
                 ),
               ),
@@ -48,7 +77,13 @@ class _SeedsState extends State<Seeds> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Vegetables")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -62,6 +97,7 @@ class _SeedsState extends State<Seeds> {
                     Text(
                       "Vegetables",
                     ),
+                    Text("सब्जियां")
                   ],
                 ),
               ),
@@ -77,7 +113,13 @@ class _SeedsState extends State<Seeds> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Fruits")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -89,6 +131,7 @@ class _SeedsState extends State<Seeds> {
                       ),
                     ),
                     Text("Fruits"),
+                    Text("फल")
                   ],
                 ),
               ),
@@ -99,7 +142,13 @@ class _SeedsState extends State<Seeds> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Flower")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -113,6 +162,7 @@ class _SeedsState extends State<Seeds> {
                     Text(
                       "Flower",
                     ),
+                    Text("फूल")
                   ],
                 ),
               ),
@@ -128,7 +178,13 @@ class _SeedsState extends State<Seeds> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Exotic")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -140,6 +196,7 @@ class _SeedsState extends State<Seeds> {
                       ),
                     ),
                     Text("Exotic"),
+                    Text("विदेशी")
                   ],
                 ),
               ),
@@ -150,7 +207,13 @@ class _SeedsState extends State<Seeds> {
               minWidth: 150.0,
               height: 100.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Products(name: "Home Garden")),
+                  );
+                },
                 child: Column(
                   children: <Widget>[
                     Padding(
@@ -164,6 +227,7 @@ class _SeedsState extends State<Seeds> {
                     Text(
                       "Home Garden",
                     ),
+                    Text("बगीचा")
                   ],
                 ),
               ),

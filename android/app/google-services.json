@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1062840173553",
+    "firebase_url": "https://aggrio-8b3d3.firebaseio.com",
+    "project_id": "aggrio-8b3d3",
+    "storage_bucket": "aggrio-8b3d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062840173553:android:d50183a381f24a0683fa50",
+        "android_client_info": {
+          "package_name": "com.example.agrrio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062840173553-dkb9hv40vbs0j3rpj9p47ujerirttfka.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agrrio",
+            "certificate_hash": "a721405f137d98080684b16a4d9e9c52b096e015"
+          }
+        },
+        {
+          "client_id": "1062840173553-2hvdu4mged41ekcumuks9b3uujvo2it6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ3LVvuuphvKBk62zazj759Es5IZP0144"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062840173553-2hvdu4mged41ekcumuks9b3uujvo2it6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

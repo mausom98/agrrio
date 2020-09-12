@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import '../Icons/custom_icons.dart';
-import '../Icons/custom2_icons.dart';
+import '../Icons/custom3_icons.dart';
 import 'package:agrrio/Pages/products.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HeavyMachinery extends StatefulWidget {
+class Husbandry extends StatefulWidget {
   @override
-  _HeavyMachineryState createState() => _HeavyMachineryState();
+  _HusbandryState createState() => _HusbandryState();
 }
 
-class _HeavyMachineryState extends State<HeavyMachinery> {
+class _HusbandryState extends State<Husbandry> {
   final String telephoneNumber = "8878079999";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Heavy Machinery'),
+        title: Text('Husbandry'),
         actions: <Widget>[
           Padding(
             padding: EdgeInsets.only(right: 20.0),
@@ -36,12 +35,8 @@ class _HeavyMachineryState extends State<HeavyMachinery> {
       body: Column(children: <Widget>[
         SizedBox(height: 30.0),
         Text(
-          'Machine Category',
+          'Animal Husbandry',
           style: TextStyle(fontSize: 30.0),
-        ),
-        Text(
-          'मशीन श्रेणी',
-          style: TextStyle(fontSize: 20.0),
         ),
         SizedBox(height: 30.0),
         Row(
@@ -56,7 +51,7 @@ class _HeavyMachineryState extends State<HeavyMachinery> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Products(name: "Tractors")),
+                        builder: (context) => Products(name: "Dairy")),
                   );
                 },
                 child: Column(
@@ -64,13 +59,13 @@ class _HeavyMachineryState extends State<HeavyMachinery> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Custom.tractor,
-                        color: Colors.green,
+                        Custom3.dairy_products,
+                        color: Colors.teal,
                         size: 40.0,
                       ),
                     ),
-                    Text("Tractors"),
-                    Text("ट्रैक्टर")
+                    Text("Dairy"),
+                    Text("दुग्धालय")
                   ],
                 ),
               ),
@@ -85,7 +80,7 @@ class _HeavyMachineryState extends State<HeavyMachinery> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Products(name: "Harvesters")),
+                        builder: (context) => Products(name: "Fishery")),
                   );
                 },
                 child: Column(
@@ -93,15 +88,15 @@ class _HeavyMachineryState extends State<HeavyMachinery> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Custom2.technology,
-                        color: Colors.deepOrange,
+                        Custom3.fish,
+                        color: Colors.blue,
                         size: 40.0,
                       ),
                     ),
                     Text(
-                      "Harvesters",
+                      "Fishery",
                     ),
-                    Text("हार्वेस्टर")
+                    Text("मछी पालन")
                   ],
                 ),
               ),
@@ -121,7 +116,7 @@ class _HeavyMachineryState extends State<HeavyMachinery> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Products(name: "OthersH")),
+                        builder: (context) => Products(name: "Poultry")),
                   );
                 },
                 child: Column(
@@ -129,13 +124,13 @@ class _HeavyMachineryState extends State<HeavyMachinery> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Icons.open_in_new,
+                        Custom3.chicken__1_,
                         size: 40.0,
                         color: Colors.red,
                       ),
                     ),
-                    Text("Others"),
-                    Text("अन्य")
+                    Text("Poultry"),
+                    Text("मुर्गी पालन")
                   ],
                 ),
               ),

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../Icons/custom_icons.dart';
+import '../Icons/custom3_icons.dart';
 import './seeds.dart';
 import './plant_protect.dart';
 import './agri_equip.dart';
 import './hardware.dart';
 import './heavy_machinery.dart';
 import './nutrition.dart';
+import './husbandry.dart';
 
 final _bannerImage =
     'https://images.unsplash.com/photo-1474440692490-2e83ae13ba29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80';
@@ -16,16 +19,39 @@ class Shop extends StatefulWidget {
 }
 
 class _ShopState extends State<Shop> {
+  final String telephoneNumber = "8878079999";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Shop')),
+      appBar: AppBar(
+        title: Text('Shop / दुकान'),
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 20.0),
+            child: GestureDetector(
+              onTap: () async {
+                String telephoneUrl = "tel:$telephoneNumber";
+                if (await canLaunch(telephoneUrl)) {
+                  await launch(telephoneUrl);
+                } else {
+                  throw "Can't phone that number.";
+                }
+              },
+              child: Icon(Icons.call),
+            ),
+          ),
+        ],
+      ),
       body: Column(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child:
-                Image.network(_bannerImage, fit: BoxFit.cover, width: 1000.0),
+            child: Image.network(
+              _bannerImage,
+              fit: BoxFit.cover,
+              height: 120.0,
+              width: 350,
+            ),
           ),
           Column(children: <Widget>[
             Row(
@@ -53,6 +79,7 @@ class _ShopState extends State<Shop> {
                           ),
                         ),
                         Text("Seeds"),
+                        Text("बीज")
                       ],
                     ),
                   ),
@@ -74,7 +101,7 @@ class _ShopState extends State<Shop> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Icon(
-                            Custom.cauliflower,
+                            Custom3.protect,
                             color: Colors.deepOrange,
                             size: 40.0,
                           ),
@@ -82,6 +109,7 @@ class _ShopState extends State<Shop> {
                         Text(
                           "Plant Protection",
                         ),
+                        Text("पौध-संरक्षण")
                       ],
                     ),
                   ),
@@ -114,6 +142,7 @@ class _ShopState extends State<Shop> {
                           ),
                         ),
                         Text("Nutrition"),
+                        Text("पोषण")
                       ],
                     ),
                   ),
@@ -143,6 +172,7 @@ class _ShopState extends State<Shop> {
                         Text(
                           "Hardware",
                         ),
+                        Text("हार्डवेयर")
                       ],
                     ),
                   ),
@@ -175,6 +205,7 @@ class _ShopState extends State<Shop> {
                           ),
                         ),
                         Text("Agri Equipment"),
+                        Text("कृषि उपकरण")
                       ],
                     ),
                   ),
@@ -205,12 +236,43 @@ class _ShopState extends State<Shop> {
                         Text(
                           "Heavy Machinery",
                         ),
+                        Text("भारी मशीनरी")
                       ],
                     ),
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(height: 15.0),
+            ButtonTheme(
+              buttonColor: Colors.white,
+              minWidth: 150.0,
+              height: 100.0,
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Husbandry()),
+                  );
+                },
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(
+                        Custom3.barn,
+                        color: Colors.deepOrange,
+                        size: 40.0,
+                      ),
+                    ),
+                    Text(
+                      "Animal Husbandry",
+                    ),
+                    Text("पशुपालन")
+                  ],
+                ),
+              ),
+            ),
           ]),
         ],
       ),
