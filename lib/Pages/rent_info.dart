@@ -49,10 +49,13 @@ class _RentInfoState extends State<RentInfo> {
                   attribute: 'phone_number',
                   cursorColor: Colors.black,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Phone Number",
-                    labelStyle: TextStyle(color: Colors.black),
-                  ),
+                      border: OutlineInputBorder(),
+                      labelText: "Phone Number",
+                      labelStyle: TextStyle(color: Colors.black),
+                      prefixIcon: Icon(
+                        Icons.phone,
+                        color: Colors.black,
+                      )),
                   onChanged: _onChanged,
                   defaultSelectedCountryIsoCode: "IN",
                   priorityListByIsoCode: ["IN"],
@@ -80,6 +83,26 @@ class _RentInfoState extends State<RentInfo> {
                       FormBuilderValidators.required()
                     ],
                     onChanged: _onChanged),
+                SizedBox(height: 15),
+                FormBuilderTextField(
+                  attribute: 'acre',
+                  cursorColor: Colors.black,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Acre of Land",
+                      labelStyle: TextStyle(color: Colors.black),
+                      prefixIcon: Icon(
+                        Icons.linear_scale,
+                        color: Colors.black,
+                      )),
+                  onChanged: _onChanged,
+                  validators: [
+                    FormBuilderValidators.numeric(),
+                    FormBuilderValidators.required(),
+                    FormBuilderValidators.minLength(13),
+                    FormBuilderValidators.maxLength(13)
+                  ],
+                ),
                 SizedBox(height: 15),
                 FlatButton(
                   onPressed: () {
